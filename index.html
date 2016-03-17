@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Eruda - Mobile JavaScript Console</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 class="title">Eruda</h1>
+        <h2 class="subtitle">JavaScript Console for Mobile</h2>
+        <p class="github-link">View it on <a href="https://github.com/liriliri/eruda">GitHub</a></p>
+        <p class="hint">Click the right bottom button to give it a try!</p>
+        <script>
+        (function () {
+            var src = 'eruda.min.js';
+            if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        })();
+        </script>
+    </body>
+</html>

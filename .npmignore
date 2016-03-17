@@ -1,9 +1,0 @@
-/dev/
-/eustia/
-/.idea/
-/src/
-/test/
-.gitignore
-.eustia
-.npmignore
-webpack.config.js

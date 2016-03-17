@@ -1,0 +1,22 @@
+body {
+    background: #b4bad2;
+}
+.title, .subtitle, .github-link, .hint {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+    text-align: center;
+}
+.title {
+    font-size: 36px;
+    margin-top: 100px;
+    color: #272633;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 12px;
+    color: #272633;
+    opacity: 0.85;
+    margin-bottom: 50px;
+}
+.github-link a {
+    color: #fff;
+}
