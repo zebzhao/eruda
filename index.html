@@ -13,13 +13,8 @@
             ga('create', 'UA-52367952-2', 'auto');
             ga('send', 'pageview');
         </script>
-        <script>
-            (function () {
-                var src = 'eruda.min.js';
-                if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
-                document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-            })();
-        </script>
+        <script src="eruda.min.js"></script>
+        <script>eruda.init();</script>
     </head>
     <body>
         <h1 class="title">Eruda</h1>
