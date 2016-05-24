@@ -17,9 +17,35 @@
         <script>eruda.init();</script>
     </head>
     <body>
-        <h1 class="title">Eruda</h1>
-        <h2 class="subtitle">JavaScript Console for Mobile</h2>
+        <header class="header">
+            <h1 class="title">Eruda</h1>
+            <h2 class="subtitle">Console for Mobile Browsers</h2>
+        </header>
+        <svg id="triangle" width="800" height="50" viewBox="0,0,80,5" preserveAspectRatio="none">
+            <polygon points="0,0 80,0 80,5" style="fill:#eda29b"/>
+        </svg>
         <p class="github-link">View it on <a href="https://github.com/liriliri/eruda">GitHub</a></p>
         <p class="hint">Click the right bottom button to give it a try!</p>
+        <ul class="buttons">
+            <li id="error-btn" class="yellow" style="z-index: 100;" ontouchstart>Trigger Error</li>
+            <li id="ajax-btn" class="orange" style="z-index: 90;" ontouchstart>Send Ajax Request</li>
+        </ul>
+        <script>
+            function addClickEvent(id, listener)
+            {
+                document.getElementById(id).addEventListener('click', listener, false);
+            }
+            addClickEvent('error-btn', function ()
+            {
+                TriggerError();
+            });
+            addClickEvent('ajax-btn', function ()
+            {
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', 'test.json');
+                xhr.send();
+            });
+        </script>
     </body>
 </html>

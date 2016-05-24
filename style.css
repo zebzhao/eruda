@@ -1,5 +1,19 @@
-body {
-    background: #b4bad2;
+body, html {
+    padding: 0;
+    margin: 0;
+}
+.header {
+    background: #eda29b;
+    margin: 0;
+    padding: 50px 0 20px 0;
+    color: #fff;
+}
+#triangle {
+    width: 100%;
+}
+.github-link {
+    font-size: 14px;
+    color: #555;
 }
 .title, .subtitle, .github-link, .hint {
     font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
@@ -7,16 +21,44 @@ body {
 }
 .title {
     font-size: 36px;
-    margin-top: 100px;
-    color: #272633;
     margin-bottom: 10px;
 }
 .subtitle {
     font-size: 12px;
-    color: #272633;
     opacity: 0.85;
-    margin-bottom: 50px;
 }
 .github-link a {
+    color: #76a2ee;
+    font-size: 18px;
+}
+.hint {
+    color: #555;
+    margin-bottom: 50px;
+}
+.buttons {
+    padding: 0;
+    margin: 0;
+}
+.buttons li {
     color: #fff;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.05),0 1px 4px 0 rgba(0,0,0,.2), 0 3px 1px -2px rgba(0,0,0,.1);
+    position: relative;
+    text-align: center;
+}
+.buttons li.yellow {
+    background: #f2d367;
+    color: #e07556;
+}
+.buttons li.yellow:active {
+    background: #bca351;
+}
+.buttons li.orange {
+    background: #e17555;
+    color: #9c3c53;
+}
+.buttons li.orange:active {
+    background: #bc5f45;
 }
