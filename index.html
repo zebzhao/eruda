@@ -50,12 +50,17 @@
                 xhr.open('GET', 'test.json');
                 xhr.send();
             });
+
+            var isFpsLoaded = false;
             addClickEvent('fps-btn', function ()
             {
+                if (isFpsLoaded) return;
                 var script = document.createElement('script');
                 script.src="//liriliri.github.io/eruda-fps/eruda-fps.min.js";
                 document.body.appendChild(script);
-                script.onload = function () {
+                script.onload = function ()
+                {
+                    isFpsLoaded = true;
                     eruda.show('fps').show();
                 };
             });
