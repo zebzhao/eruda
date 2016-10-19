@@ -32,9 +32,11 @@
             <li id="error-btn" class="yellow" style="z-index: 100;" ontouchstart>Trigger Error</li>
             <li id="ajax-btn" class="orange" style="z-index: 90;" ontouchstart>Send Ajax Request</li>
             <li id="fps-btn" class="purple" style="z-index: 80;" ontouchstart>Load FPS Plugin</li>
+            <li id="stop-anim-btn" class="yellow" style="z-index: 70;" ontouchstart>Stop Header Animation</li>
         </ul>
         <script>
-            console.log('Hello, This is Eruda:)');
+            var animated = true;
+            console.log('%cHello, This is Eruda:)', 'color: #e17555;');
             function addClickEvent(id, listener)
             {
                 document.getElementById(id).addEventListener('click', listener, false);
@@ -49,6 +51,10 @@
 
                 xhr.open('GET', 'test.json');
                 xhr.send();
+            });
+            addClickEvent('stop-anim-btn', function ()
+            {
+                animated = false;
             });
 
             var isFpsLoaded = false;
@@ -103,7 +109,9 @@
             ctx.fillStyle = '#eda29b';
             ctx.fillRect( 0, 0, w, h );
 
-            function loop() {
+            function loop()
+            {
+              if (!animated) return;
 
               window.requestAnimationFrame( loop );
 
