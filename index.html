@@ -23,7 +23,7 @@
             <h1 class="title">Eruda</h1>
             <h2 class="subtitle">Console for Mobile Browsers</h2>
         </header>
-        <svg id="triangle" width="800" height="50" viewBox="0,0,80,5" preserveAspectRatio="none">
+        <svg id="triangle" width="800" height="70" viewBox="0,0,80,5" preserveAspectRatio="none">
             <polygon points="0,0 0,5 80,5" style="fill:#fff"/>
         </svg>
         <p class="github-link">View it on <a href="https://github.com/liriliri/eruda">GitHub</a></p>
@@ -32,7 +32,6 @@
             <li id="error-btn" class="yellow" style="z-index: 100;" ontouchstart>Trigger Error</li>
             <li id="ajax-btn" class="orange" style="z-index: 90;" ontouchstart>Send Ajax Request</li>
             <li id="fps-btn" class="purple" style="z-index: 80;" ontouchstart>Load FPS Plugin</li>
-            <li id="stop-anim-btn" class="yellow" style="z-index: 70;" ontouchstart>Stop Header Animation</li>
         </ul>
         <script>
             var animated = true;
@@ -52,10 +51,6 @@
                 xhr.open('GET', 'test.json');
                 xhr.send();
             });
-            addClickEvent('stop-anim-btn', function ()
-            {
-                animated = false;
-            });
 
             var isFpsLoaded = false;
             addClickEvent('fps-btn', function ()
@@ -74,7 +69,7 @@
         <script>
             // http://codepen.io/towc/pen/mJzOWJ/
             var c = document.getElementById('c');
-            var w = c.width = window.innerWidth,
+            var w = c.width = getCanvasWidth(),
             h = c.height = 210,
             ctx = c.getContext( '2d' ),
 
@@ -187,7 +182,7 @@
 
             window.addEventListener( 'resize', function(){
 
-              w = c.width = window.innerWidth;
+              w = c.width = getCanvasWidth();
               h = c.height = 210;
               ctx.fillStyle = '#eda29b';
               ctx.fillRect( 0, 0, w, h );
@@ -198,6 +193,11 @@
               dieX = w / 2 / opts.len;
               dieY = h / 2 / opts.len;
             });
+
+            function getCanvasWidth()
+            {
+                return window.innerWidth > 800 ? 800 : window.innerWidth;
+            }
         </script>
     </body>
 </html>

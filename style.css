@@ -1,6 +1,15 @@
 body, html {
     padding: 0;
     margin: 0;
+    height: 100%;
+}
+html {
+    background: #f8f9fa;
+}
+body {
+    max-width: 800px;
+    background: #fff;
+    margin: 0 auto;
 }
 * {
     -webkit-tap-highlight-color: transparent;
@@ -49,7 +58,6 @@ body, html {
     margin-bottom: 10px;
     position: relative;
     z-index: 10;
-    text-shadow: 1px 1px 0 #000;
 }
 .subtitle {
     text-align: left;
@@ -58,7 +66,7 @@ body, html {
     z-index: 10;
     padding-left: 15px;
     margin-bottom: 50px;
-    text-shadow: 1px 1px 0 #000;
+    text-decoration: underline;
 }
 .github-link a {
     color: #76a2ee;
@@ -71,6 +79,7 @@ body, html {
 .buttons {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 .buttons li {
     color: #fff;
@@ -81,6 +90,7 @@ body, html {
     position: relative;
     text-align: center;
     transition: background .3s, color .3s;
+    cursor: pointer;
 }
 .buttons li.yellow {
     background: #f2d367;
