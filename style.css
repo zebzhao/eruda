@@ -11,11 +11,6 @@ body {
     background: #fff;
     margin: 0 auto;
 }
-* {
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
-}
 .header {
     background: #eda29b;
     position: relative;
