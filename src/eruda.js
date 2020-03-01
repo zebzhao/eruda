@@ -28,7 +28,7 @@ import {
 import evalCss from './lib/evalCss'
 
 export default {
-  init({ container, tool, autoScale = true, useShadowDom = true } = {}) {
+  init({ container, tool, autoScale=true, useShadowDom=true } = {}) {
     if (this._isInit) return
 
     this._isInit = true

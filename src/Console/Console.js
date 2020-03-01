@@ -29,6 +29,9 @@ export default class Console extends Tool {
 
     this._registerListener()
   }
+  get logger() {
+    return this._logger
+  }
   init($el, container) {
     super.init($el)
     this._container = container

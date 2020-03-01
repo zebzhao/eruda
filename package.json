@@ -14,7 +14,8 @@
     "lint:fix": "npm run lint -- --fix",
     "setup": "shx mkdir -p test/lib && shx cp node_modules/jasmine-core/lib/jasmine-core/{jasmine.css,jasmine.js,jasmine-html.js,boot.js} test/lib && shx cp node_modules/jasmine-jquery/lib/jasmine-jquery.js test/lib && shx cp node_modules/jquery/dist/jquery.js test/lib",
     "genIcon": "node script/genIcon && prettier src/**/*.css --write",
-    "genUtilDoc": "eustia doc src/lib/util.js -f md -o doc/UTIL_API.md -t \"Eruda Util Documentation\""
+    "genUtilDoc": "eustia doc src/lib/util.js -f md -o doc/UTIL_API.md -t \"Eruda Util Documentation\"",
+    "publish-build": "gh-pages -d dist --branch build"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
     "handlebars": "^4.7.3",
+    "gh-pages": "^2.2.0",
     "handlebars-loader": "^1.7.1",
     "html-minifier": "^4.0.0",
     "html-minifier-loader": "^1.4.1",

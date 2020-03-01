@@ -208,6 +208,7 @@ export default class DevTools extends Emitter {
   }
   _bindEvent() {
     const $navBar = this._$el.find('.eruda-nav-bar')
+    const $resizeGutter = this._$el.find('.eruda-resize-gutter')
     const startListener = e => {
       e = e.origEvent
       this._resizeTimer = setTimeout(() => {
@@ -216,8 +217,8 @@ export default class DevTools extends Emitter {
         this._isResizing = true
         this._resizeStartSize = this.config.get('displaySize')
         this._resizeStartY = getClientY(e)
-        $navBar.css('filter', 'brightness(1.2)')
-      }, 1000)
+        $resizeGutter.addClass('eruda-dragging')
+      }, 100)
     }
     const setDisplaySize = throttle(
       size => this.config.set('displaySize', size),
@@ -245,7 +246,7 @@ export default class DevTools extends Emitter {
     const endListener = () => {
       clearTimeout(this._resizeTimer)
       this._isResizing = false
-      $navBar.css('filter', 'brightness(1)')
+      $resizeGutter.rmClass('eruda-dragging')
     }
     const getClientY = e => {
       if (e.clientY) return e.clientY
@@ -257,10 +258,10 @@ export default class DevTools extends Emitter {
     $navBar.on('contextmenu', e => e.preventDefault())
     const $root = $(document.documentElement)
     if (isMobile()) {
-      $navBar.on('touchstart', startListener).on('touchmove', moveListener)
+      $resizeGutter.on('touchstart', startListener).on('touchmove', moveListener)
       $root.on('touchend', endListener)
     } else {
-      $navBar.on('mousedown', startListener)
+      $resizeGutter.on('mousedown', startListener)
       $root.on('mousemove', moveListener)
       $root.on('mouseup', endListener)
     }
