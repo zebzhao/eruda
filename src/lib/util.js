@@ -5111,11 +5111,11 @@ export var $show = _.$show = (function (exports) {
      * each $safeEls 
      */
 
-    exports = function(els) {
+    exports = function(els, display) {
         els = $safeEls(els);
         each(els, function(el) {
             if (isHidden(el)) {
-                el.style.display = getDefDisplay(el.nodeName);
+                el.style.display = display || getDefDisplay(el.nodeName);
             }
         });
     };
@@ -5892,8 +5892,8 @@ export var $ = _.$ = (function (exports) {
         hide: function() {
             return this.css('display', 'none');
         },
-        show: function() {
-            $show(this);
+        show: function(display) {
+            $show(this, display);
             return this;
         },
         first: function() {

@@ -20,7 +20,7 @@ export default class EntryBtn extends Emitter {
     this._$el.hide()
   }
   show() {
-    this._$el.show()
+    this._$el.show('flex')
   }
   setPos(pos) {
     if (this._isOutOfRange(pos)) {
