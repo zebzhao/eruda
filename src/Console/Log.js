@@ -49,6 +49,7 @@ export default class Log extends Emitter {
     id,
     group = {},
     targetGroup = {},
+    from = null,
     displayHeader = false,
     ignoreFilter = false
   }) {
@@ -71,7 +72,7 @@ export default class Log extends Emitter {
 
     if (displayHeader) {
       this.time = getCurTime()
-      this.from = getFrom()
+      this.from = from
     }
 
     this._formatMsg()
@@ -559,22 +560,6 @@ function formatEl(val) {
     beautify.html(val.outerHTML, { unformatted: [], indent_size: 2 }),
     'html'
   )}</pre>`
-}
-
-function getFrom() {
-  const e = new Error()
-  let ret = ''
-  const lines = e.stack ? e.stack.split('\n') : ''
-
-  for (let i = 0, len = lines.length; i < len; i++) {
-    ret = lines[i]
-    if (ret.indexOf('winConsole') > -1 && i < len - 1) {
-      ret = lines[i + 1]
-      break
-    }
-  }
-
-  return ret
 }
 
 const getCurTime = () => dateFormat('HH:MM:ss')

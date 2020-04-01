@@ -299,17 +299,30 @@ export default class Logger extends Emitter {
 
     return this
   }
-  insert(type, args) {
-    this._asyncRender
-      ? this.insertAsync(type, args)
-      : this.insertSync(type, args)
+  getFrom() {
+    const e = new Error()
+    let ret = ''
+    const lines = e.stack ? e.stack.split('\n') : ''
+    for (let i = 0, len = lines.length; i < len; i++) {
+      ret = lines[i]
+      if (ret.indexOf('winConsole') > -1 && i < len - 1) {
+        ret = lines[i + 1]
+        break
+      }
+    }
+    return ret
   }
-  insertAsync(type, args) {
-    this._asyncList.push([type, args])
-
+  insert(type, args) {
+    const from = this.getFrom()
+    this._asyncRender
+      ? this.insertAsync(type, args, from)
+      : this.insertSync(type, args, from)
+  }
+  insertAsync(type, args, from) {
+    this._asyncList.push([type, args, from])
     this._handleAsyncList()
   }
-  insertSync(type, args) {
+  insertSync(type, args, from) {
     const logs = this._logs
     const groupStack = this._groupStack
 
@@ -321,7 +334,7 @@ export default class Logger extends Emitter {
       return this
     }
 
-    const options = isStr(type) ? { type, args } : type
+    const options = isStr(type) ? { type, args, from } : type
     if (groupStack.size > 0) {
       options.group = groupStack.peek()
     }
@@ -494,8 +507,8 @@ export default class Logger extends Emitter {
         done = true
       }
       for (let i = 0; i < num; i++) {
-        const [type, args] = asyncList.shift()
-        this.insertSync(type, args)
+        const [type, args, from] = asyncList.shift()
+        this.insertSync(type, args, from)
       }
       if (!done) raf(() => this._handleAsyncList(timeout))
     }, timeout)

@@ -264,7 +264,7 @@ export default class Console extends Tool {
       catchGlobalErr: true,
       jsExecution: true,
       overrideConsole: true,
-      displayExtraInfo: false,
+      displayExtraInfo: true,
       displayUnenumerable: true,
       displayGetterVal: false,
       lazyEvaluation: true,
